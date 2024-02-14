@@ -1,0 +1,83 @@
+﻿Part 1: SWAPI
+For each of the following use the SWAPI docs, to figure out the complete URL(s) (including params or queries) that you need to go to in order to reach the following data:
+* the height of Darth Vader
+* Height:"height": "202"
+* - https://swapi.dev/api/people/?search=Darth Vader or https://swapi.dev/api/people/4
+* * the population of the planet Alderaan
+* Num: "population": "2000000000"
+* - https://swapi.dev/api/planets/?search=Alderaan or "https://swapi.dev/api/planets/2/"
+* * * the name of the manufacturer of the Millennium Falcon
+* Name: ​​"manufacturer": "Corellian Engineering Corporation"
+* - https://swapi.dev/api/starships/?search=Millennium Falcon or "https://swapi.dev/api/starships/10/"
+* * the name of the species that C-3PO belongs to (multiple URLs)
+* https://swapi.dev/api/people/?search=C-3PO then "https://swapi.dev/api/species/2/"
+* He belongs to : "name": "Droid"
+* * the title of each film that Obi-Wan Kenobi is in (multiple URLs)
+* https://swapi.dev/api/people/?search=Obi-Wan Kenobi then the url of each movie hes in: "films": [
+* "https://swapi.dev/api/films/1/",
+* "https://swapi.dev/api/films/2/",
+* "https://swapi.dev/api/films/3/",
+* "https://swapi.dev/api/films/4/",
+* "https://swapi.dev/api/films/5/",
+* "https://swapi.dev/api/films/6/"
+* * * use the search query (the how to on the search query is at the bottom of the Getting Started section of the documentation) to get the information about the Millennium Falcon, it’s a starship
+* https://swapi.dev/api/starships/?search=Millennium Falcon  
+* The info: 
+* "name": "Millennium Falcon",
+* "model": "YT-1300 light freighter",
+* "manufacturer": "Corellian Engineering Corporation",
+* "cost_in_credits": "100000",
+* "length": "34.37",
+* "max_atmosphering_speed": "1050",
+* "crew": "4",
+* "passengers": "6",
+* "cargo_capacity": "100000",
+* "consumables": "2 months",
+* "hyperdrive_rating": "0.5",
+* "MGLT": "75",
+* "starship_class": "Light freighter",
+* "pilots": [
+* "https://swapi.dev/api/people/13/",
+* "https://swapi.dev/api/people/14/",
+* "https://swapi.dev/api/people/25/",
+* "https://swapi.dev/api/people/31/"
+* ],
+* "films": [
+* "https://swapi.dev/api/films/1/",
+* "https://swapi.dev/api/films/2/",
+* "https://swapi.dev/api/films/3/"
+* ],
+* "created": "2014-12-10T16:59:45.094000Z",
+* "edited": "2014-12-20T21:23:49.880000Z",
+* "url": "https://swapi.dev/api/starships/10/"
+* Part 2: Social Mountain
+Summary
+In this section, you’ll be looking through the documentation for the Social Mountain API and answering questions. You’ll also be making requests and recording the URLs and some information about the responses. Run the requests in Postman. Note: this API is live and viewable by your classmates and staff. Keep things appropriate for class.
+You can view the documentation for the Social Mountain API here
+The base URL of your requests is: https://practiceapi.devmountain.com/api (make sure to have the “s” in “https”)
+* Check if the POST request accept params, queries, and/or a body. Which one(s) and what information is it expecting to be sent?
+* - yes it accepts params in body form containing the text of the new post.
+* * What data type does the GET request return?
+* It returns an array
+* * What would the URL look like for deleting the post with the id 555? (This post does not exist anymore, but the syntax is the same for existing posts, )
+* - https://practiceapi.devmountain.com/api/posts/555
+* * List the possible response codes from the GET request at ‘/posts/filter’
+* - 200 409
+* Create a post whose text is your name, record the URL and body here:
+* Body of post : 
+* "id": 1905,
+* "text": "Lesley",
+* "date": "14 Feb 2024"
+* Url:https://practiceapi.devmountain.com/api/posts/filter?text=Lesley
+* What would the URL and body object be to update the post you just made to contain your favorite color instead of your name?
+* - https://practiceapi.devmountain.com/api/posts/?id=1905    The object is: {
+* "text": "My favorite color is BLUEEEEE!!!"
+* }
+* * What is the URL to get posts that contain the text “blue”?
+* - https://practiceapi.devmountain.com/api/posts/filter?text=blue
+* * Make a request to GET all the posts. What are the content type and charset of the response? (Hint: look on the Headers)
+* -application/json; charset=utf-8
+* * What would cause a PUT request to return a 409 status?
+* -  Request was missing req.query.id or req.body.text
+* * What happens if you try to send a query in the GET request URL? Why do you get that response?
+* -  it returns an array filtered to your query. You get that response because you are filtering the array according to your query.
